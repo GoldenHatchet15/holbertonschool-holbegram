@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/text_field.dart';
+import 'signup_screen.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -139,9 +141,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Don't have an account? "),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/signup');
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignupScreen()),
+                      );
                     },
                     child: const Text(
                       'Sign up',
@@ -154,6 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
+
 
             const SizedBox(height: 10),
 
