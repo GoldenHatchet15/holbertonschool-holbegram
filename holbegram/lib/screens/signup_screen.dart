@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/text_field.dart';
 import 'login_screen.dart';
-
+import 'auth/upload_image_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -144,7 +144,38 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                       onPressed: () {
-                        // TODO: Sign up logic
+                        final email = emailController.text.trim();
+                        final username = usernameController.text.trim();
+                        final password = passwordController.text.trim();
+                        final confirmPassword = passwordConfirmController.text.trim();
+
+                        if (email.isEmpty ||
+                            username.isEmpty ||
+                            password.isEmpty ||
+                            confirmPassword.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Please fill all the fields")),
+                          );
+                          return;
+                        }
+
+                        if (password != confirmPassword) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Passwords do not match")),
+                          );
+                          return;
+                        }
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => AddPicture(
+                              email: email,
+                              password: password,
+                              username: username,
+                            ),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Sign up',
@@ -159,25 +190,24 @@ class _SignupScreenState extends State<SignupScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                        const Text("Already have an account? "),
-                        TextButton(
+                      const Text("Already have an account? "),
+                      TextButton(
                         onPressed: () {
-                            Navigator.push(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const LoginScreen()),
-                            );
+                          );
                         },
                         child: const Text(
-                            'Log in',
-                            style: TextStyle(
+                          'Log in',
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(218, 226, 37, 24),
-                            ),
+                          ),
                         ),
-                    ),
+                      ),
                     ],
-                ),
-
+                  ),
                 ],
               ),
             ),
