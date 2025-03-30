@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="firebase_database_url" translatable="false">https://holbegram-5a04e-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">407179213104</string>
+    <string name="google_api_key" translatable="false">AIzaSyCEUppTZ69cBiL-5lndBUVAzYMLYkyOwB0</string>
+    <string name="google_app_id" translatable="false">1:407179213104:android:1f8538434326222f0c30f5</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCEUppTZ69cBiL-5lndBUVAzYMLYkyOwB0</string>
+    <string name="google_storage_bucket" translatable="false">holbegram-5a04e.firebasestorage.app</string>
+    <string name="project_id" translatable="false">holbegram-5a04e</string>
+</resources>
