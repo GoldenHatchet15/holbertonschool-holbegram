@@ -1,36 +1,32 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
     id("dev.flutter.flutter-gradle-plugin")
-    id("com.google.gms.google-services") // ✅ required
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.holbegram"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
-
-    defaultConfig {
-        applicationId = "com.holberton.holbegram"
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
-    }
-
-    buildTypes {
-        release {
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-
+    namespace = "com.example.yourpackage"
+    compileSdk = 34
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
+    
     kotlinOptions {
         jvmTarget = "11"
+    }
+    
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 34
+    }
+    
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.getByName("debug")
+        }
     }
 }
 
@@ -39,7 +35,7 @@ flutter {
 }
 
 dependencies {
-    implementation(platform("com.google.firebase:firebase-bom:33.11.0")) // ✅ updated BoM
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0")) // Compatible with Kotlin 1.8.x
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
 }

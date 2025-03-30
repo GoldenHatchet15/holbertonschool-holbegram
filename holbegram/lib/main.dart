@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'screens/login_screen.dart'; // 👈 Create this file
+import 'screens/login_screen.dart';
+import 'screens/signup_screen.dart'; // 👈 Add this line
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const LoginScreen(), // 👈 Set login screen as the start
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const LoginScreen(),
+        '/signup': (context) => const SignupScreen(), // 👈 Signup route
+      },
     );
   }
 }

@@ -1,1 +1,2 @@
+/home/rapha/Documents/HBTN-Specialization/holbertonschool-holbegram/holbegram/android/app/src/main/kotlin/com/holberton/holbegram/MainActivity.kt
 /home/rapha/Documents/HBTN-Specialization/holbertonschool-holbegram/holbegram/android/app/src/main/kotlin/com/example/holbegram/MainActivity.kt
